@@ -1,0 +1,22 @@
+# 密钥与环境
+.env
+.env.*
+!.env.example
+
+# 依赖与构建
+node_modules/
+dist/
+dist-server/
+
+# 上传媒体与运行日志
+server/uploads/
+*.log
+logs/
+
+# 测试产物
+playwright-report/
+test-results/
+
+# 系统
+.DS_Store
+Thumbs.db
