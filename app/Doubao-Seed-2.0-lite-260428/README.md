@@ -20,18 +20,21 @@ brew install ffmpeg
 
 ## 配置
 
-不要把 API Key 写进源码。使用环境变量：
+不要把 API Key 写进源码。统一放在 `app/.env`，这个文件会被 Git 忽略：
 
 ```bash
-export ARK_API_KEY="你的火山方舟 API Key"
+cp ../../.env.example ../../.env
 ```
 
-可选环境变量：
+然后编辑 `app/.env`：
 
 ```bash
-export ARK_MODEL="doubao-seed-2-0-lite-260428"
-export ARK_BASE_URL="https://ark.cn-beijing.volces.com/api/v3"
+ARK_API_KEY="你的火山方舟 API Key"
+ARK_MODEL="doubao-seed-2-0-lite-260428"
+ARK_BASE_URL="https://ark.cn-beijing.volces.com/api/v3"
 ```
+
+也可以继续使用系统环境变量。系统环境变量优先级更高，`app/.env` 只在变量尚未设置时补充。
 
 ## 使用
 

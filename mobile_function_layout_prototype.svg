@@ -1,0 +1,347 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1800" viewBox="0 0 1800 1800">
+  <defs>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#111827" flood-opacity="0.10"/>
+    </filter>
+    <style>
+      .bg { fill: #f4f5f7; }
+      .phone { fill: #ffffff; stroke: #eceef2; stroke-width: 2; }
+      .text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #111619; }
+      .muted { fill: #7c818a; }
+      .hair { stroke: #e6e8ec; stroke-width: 2; }
+      .pill { fill: #f6f6f7; }
+      .card { fill: #ffffff; stroke: #edf0f3; stroke-width: 2; filter: url(#softShadow); }
+      .soft { fill: #f7f7f8; }
+      .lav { fill: #eee8ff; }
+      .lav2 { fill: #ded2ff; }
+      .blue { fill: #edf2ff; }
+      .peach { fill: #fff0e9; }
+      .mint { fill: #edf8f0; }
+      .warn { fill: #fff6dc; }
+      .dark { fill: #111619; }
+      .line { stroke: #d9dde3; stroke-width: 2; fill: none; }
+      .dash { stroke: #e2e4e8; stroke-width: 3; stroke-dasharray: 11 11; fill: none; }
+      .nav { fill: #ffffff; filter: url(#softShadow); }
+      .selected { fill: #e9e9ea; }
+      .assistant { fill: #a98cff; }
+      .small { font-size: 21px; }
+      .body { font-size: 25px; font-weight: 600; }
+      .caption { font-size: 20px; }
+      .title { font-size: 54px; font-weight: 700; }
+      .section { font-size: 31px; font-weight: 700; }
+      .tiny { font-size: 17px; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1800" height="2100"/>
+  <text class="text" x="90" y="82" font-size="44" font-weight="800">育儿协作台｜手机客户端功能板块布局原型</text>
+  <text class="muted" x="90" y="124" font-size="24">基于现有 GitHub 成果：视频理解、结构化护理步骤、家庭画像、任务规划、安全校验、Ark/RAG 能力预留</text>
+
+  <!-- Page 1 -->
+  <g transform="translate(70,170) scale(0.86)">
+    <rect class="phone" width="390" height="844" rx="48"/>
+    <text class="text" x="38" y="58" font-size="24" font-weight="800">22:49</text>
+    <text class="text" x="303" y="58" font-size="21" font-weight="700">5G  ◼</text>
+    <text class="text title" x="34" y="150">待办</text>
+    <circle class="soft" cx="194" cy="137" r="18"/>
+    <text class="muted" x="185" y="146" font-size="28" font-weight="700">+</text>
+    <rect class="lav" x="177" y="95" width="86" height="48" rx="24"/>
+    <text class="text" x="205" y="127" font-size="24" font-weight="800">Pro</text>
+    <rect class="pill" x="275" y="91" width="88" height="54" rx="27"/>
+    <text class="text" x="294" y="128" font-size="36" font-weight="900">⋯  +</text>
+
+    <g transform="translate(32,198)">
+      <rect class="peach" width="80" height="38" rx="19"/>
+      <text class="text body" x="23" y="27">高</text>
+      <text class="text small" x="54" y="26">⌃</text>
+      <circle class="soft" cx="332" cy="18" r="14"/>
+      <text class="muted" x="324" y="27" font-size="26" font-weight="700">+</text>
+    </g>
+    <g transform="translate(32,254)">
+      <rect class="warn" width="80" height="38" rx="19"/>
+      <text class="text body" x="23" y="27">中</text>
+      <text class="text small" x="54" y="26">⌃</text>
+      <circle class="soft" cx="332" cy="18" r="14"/>
+      <text class="muted" x="324" y="27" font-size="26" font-weight="700">+</text>
+    </g>
+    <g transform="translate(32,310)">
+      <rect class="blue" width="80" height="38" rx="19"/>
+      <text class="text body" x="23" y="27">低</text>
+      <text class="text small" x="54" y="26">⌃</text>
+      <circle class="soft" cx="332" cy="18" r="14"/>
+      <text class="muted" x="324" y="27" font-size="26" font-weight="700">+</text>
+    </g>
+
+    <rect class="pill" x="32" y="376" width="130" height="44" rx="22"/>
+    <text class="text" x="50" y="405" font-size="24" font-weight="800">待办事项⌄</text>
+    <rect class="card" x="32" y="444" width="326" height="118" rx="24"/>
+    <circle class="lav2" cx="66" cy="484" r="24"/>
+    <text class="text" x="56" y="493" font-size="24">👶</text>
+    <text class="text body" x="102" y="483">睡前用品准备</text>
+    <text class="muted small" x="102" y="513">爸爸负责 · 20:00 · 奶奶协助</text>
+    <text class="muted tiny" x="102" y="541">来源：视频 02:10 · 状态：宝宝刚喂奶</text>
+    <circle class="line" cx="322" cy="491" r="18"/>
+    <rect class="mint" x="32" y="584" width="326" height="82" rx="24"/>
+    <text class="text body" x="56" y="620">完成后沉淀为家庭经验</text>
+    <text class="muted small" x="56" y="649">步骤、注意事项、负责人反馈进入知识库</text>
+    <rect class="dash" x="32" y="690" width="326" height="54" rx="16"/>
+    <text class="muted body" x="55" y="725">添加到你的清单</text>
+    <text class="muted" x="326" y="725" font-size="28" font-weight="800">+</text>
+
+    <g transform="translate(30,765)">
+      <rect class="nav" width="292" height="62" rx="31"/>
+      <rect class="selected" x="7" y="7" width="83" height="48" rx="24"/>
+      <text class="text" x="36" y="43" font-size="30">✓</text>
+      <text class="muted" x="116" y="43" font-size="28">▣</text>
+      <text class="muted" x="185" y="43" font-size="28">◌</text>
+      <text class="muted" x="247" y="43" font-size="28">▥</text>
+      <circle fill="#fff" cx="344" cy="31" r="33" filter="url(#softShadow)"/>
+      <circle class="assistant" cx="344" cy="31" r="24"/>
+      <text class="text" x="333" y="41" font-size="24">◡</text>
+    </g>
+  </g>
+
+  <!-- Page 2 -->
+  <g transform="translate(432,170) scale(0.86)">
+    <rect class="phone" width="390" height="844" rx="48"/>
+    <text class="text" x="38" y="58" font-size="24" font-weight="800">22:49</text>
+    <text class="text" x="303" y="58" font-size="21" font-weight="700">5G  ◼</text>
+    <rect class="lav2" x="42" y="86" width="306" height="54" rx="27"/>
+    <text fill="#fff" x="93" y="121" font-size="22" font-weight="800">Agent 已同步今日任务与家庭日历</text>
+    <text class="text title" x="32" y="196">星期二</text>
+    <text class="text body" x="250" y="183">2026年7月 ›</text>
+    <g transform="translate(34,225)">
+      <text class="muted caption" x="0" y="20">周</text><text class="muted" x="-4" y="52" font-size="31">20</text>
+      <rect class="soft" x="57" y="-12" width="58" height="82" rx="24"/>
+      <text class="text caption" x="78" y="20">周</text><text class="text" x="73" y="53" font-size="31">21</text>
+      <text class="muted caption" x="148" y="20">周</text><text class="muted" x="143" y="52" font-size="31">22</text>
+      <text class="muted caption" x="219" y="20">周</text><text class="muted" x="214" y="52" font-size="31">23</text>
+      <text class="muted caption" x="288" y="20">周</text><text class="muted" x="283" y="52" font-size="31">24</text>
+    </g>
+
+    <g transform="translate(30,330)">
+      <rect class="blue" width="145" height="112" rx="24"/>
+      <text class="text" x="24" y="36" font-size="30">▦</text>
+      <text class="text body" x="24" y="76">导入日历</text>
+      <text class="muted tiny" x="24" y="101">家庭共享/提醒</text>
+      <rect class="lav" x="165" width="170" height="112" rx="24"/>
+      <text class="text" x="188" y="36" font-size="30">◉</text>
+      <text class="text body" x="188" y="76">Agent 排期</text>
+      <text class="muted tiny" x="188" y="101">按成员可用时间</text>
+    </g>
+    <rect class="pill" x="32" y="478" width="116" height="40" rx="20"/>
+    <text class="text body" x="55" y="506">上午 (1)⌄</text>
+    <rect class="card" x="32" y="542" width="326" height="96" rx="24"/>
+    <text class="text body" x="74" y="580">晨间喂养记录</text>
+    <text class="muted small" x="74" y="611">妈妈 · 08:00 · 10 分钟 · 来源 01:24</text>
+    <circle class="mint" cx="54" cy="579" r="18"/>
+    <circle class="line" cx="322" cy="589" r="17"/>
+    <rect class="pill" x="32" y="662" width="116" height="40" rx="20"/>
+    <text class="text body" x="55" y="690">晚上 (2)⌄</text>
+    <rect class="card" x="32" y="722" width="326" height="74" rx="24"/>
+    <text class="text body" x="74" y="759">睡前护理流程</text>
+    <text class="muted small" x="74" y="786">爸爸主责 · 宝宝状态触发提醒</text>
+    <circle class="lav2" cx="54" cy="759" r="18"/>
+    <g transform="translate(30,765)">
+      <rect class="nav" width="292" height="62" rx="31"/>
+      <rect class="selected" x="83" y="7" width="83" height="48" rx="24"/>
+      <text class="muted" x="36" y="43" font-size="30">✓</text>
+      <text class="text" x="116" y="43" font-size="28">▣</text>
+      <text class="muted" x="185" y="43" font-size="28">◌</text>
+      <text class="muted" x="247" y="43" font-size="28">▥</text>
+      <circle fill="#fff" cx="344" cy="31" r="33" filter="url(#softShadow)"/>
+      <circle class="assistant" cx="344" cy="31" r="24"/>
+      <text class="text" x="333" y="41" font-size="24">◡</text>
+    </g>
+  </g>
+
+  <!-- Page 3 -->
+  <g transform="translate(70,942) scale(0.86)">
+    <rect class="phone" width="390" height="844" rx="48"/>
+    <text class="text" x="38" y="58" font-size="24" font-weight="800">22:49</text>
+    <text class="text" x="303" y="58" font-size="21" font-weight="700">5G  ◼</text>
+    <rect class="pill" x="38" y="92" width="88" height="50" rx="25"/>
+    <text class="text body" x="59" y="124">weier</text>
+    <rect class="lav" x="143" y="92" width="126" height="50" rx="25"/>
+    <text class="text body" x="171" y="125">Pro ✦</text>
+    <rect class="pill" x="291" y="92" width="60" height="50" rx="25"/>
+    <text class="text" x="309" y="126" font-size="31">⚙</text>
+    <text class="text section" x="38" y="204">52 次完成贡献</text>
+    <text class="muted small" x="38" y="232">过去 1 年 · 按家庭任务完成数统计</text>
+
+    <rect class="card" x="32" y="260" width="326" height="182" rx="24"/>
+    <text class="muted tiny" x="55" y="296">Jul  Aug  Sep  Oct  Nov  Dec  Jan  Feb  Mar  Apr  May</text>
+    <g transform="translate(58,315)">
+      <rect fill="#eef0f2" x="0" y="0" width="10" height="10" rx="2"/>
+      <rect fill="#eef0f2" x="17" y="0" width="10" height="10" rx="2"/>
+      <rect fill="#eef0f2" x="34" y="0" width="10" height="10" rx="2"/>
+      <rect fill="#d8f0dc" x="255" y="0" width="10" height="10" rx="2"/>
+      <rect fill="#35b25d" x="272" y="0" width="10" height="10" rx="2"/>
+      <rect fill="#eef0f2" x="289" y="0" width="10" height="10" rx="2"/>
+      <rect fill="#eef0f2" x="0" y="17" width="10" height="10" rx="2"/>
+      <rect fill="#eef0f2" x="17" y="17" width="10" height="10" rx="2"/>
+      <rect fill="#eef0f2" x="34" y="17" width="10" height="10" rx="2"/>
+      <rect fill="#177437" x="238" y="17" width="10" height="10" rx="2"/>
+      <rect fill="#35b25d" x="255" y="17" width="10" height="10" rx="2"/>
+      <rect fill="#eef0f2" x="272" y="17" width="10" height="10" rx="2"/>
+      <rect fill="#eef0f2" x="289" y="17" width="10" height="10" rx="2"/>
+      <rect fill="#eef0f2" x="0" y="34" width="10" height="10" rx="2"/>
+      <rect fill="#eef0f2" x="17" y="34" width="10" height="10" rx="2"/>
+      <rect fill="#eef0f2" x="34" y="34" width="10" height="10" rx="2"/>
+      <rect fill="#2ea44f" x="221" y="34" width="10" height="10" rx="2"/>
+      <rect fill="#eef0f2" x="238" y="34" width="10" height="10" rx="2"/>
+      <rect fill="#35b25d" x="255" y="34" width="10" height="10" rx="2"/>
+      <rect fill="#d8f0dc" x="289" y="34" width="10" height="10" rx="2"/>
+      <rect fill="#eef0f2" x="0" y="51" width="10" height="10" rx="2"/>
+      <rect fill="#eef0f2" x="17" y="51" width="10" height="10" rx="2"/>
+      <rect fill="#177437" x="238" y="51" width="10" height="10" rx="2"/>
+      <rect fill="#35b25d" x="272" y="51" width="10" height="10" rx="2"/>
+      <rect fill="#eef0f2" x="289" y="51" width="10" height="10" rx="2"/>
+      <rect fill="#eef0f2" x="0" y="68" width="10" height="10" rx="2"/>
+      <rect fill="#eef0f2" x="17" y="68" width="10" height="10" rx="2"/>
+      <rect fill="#177437" x="221" y="68" width="10" height="10" rx="2"/>
+      <rect fill="#eef0f2" x="238" y="68" width="10" height="10" rx="2"/>
+      <rect fill="#35b25d" x="255" y="68" width="10" height="10" rx="2"/>
+      <rect fill="#eef0f2" x="272" y="68" width="10" height="10" rx="2"/>
+      <rect fill="#eef0f2" x="289" y="68" width="10" height="10" rx="2"/>
+    </g>
+    <text class="muted tiny" x="244" y="416">Less  ▫ ▪ ▪ ▪  More</text>
+
+    <text class="text section" x="38" y="496">成就徽章</text>
+    <rect class="card" x="32" y="520" width="326" height="142" rx="24"/>
+    <circle class="lav2" cx="93" cy="577" r="35"/>
+    <text class="text" x="79" y="589" font-size="38" font-weight="900">1</text>
+    <text class="text body" x="52" y="635">日间连胜</text>
+    <circle class="mint" cx="195" cy="577" r="35"/>
+    <text class="text" x="182" y="589" font-size="38" font-weight="900">0</text>
+    <text class="text body" x="164" y="635">完工</text>
+    <circle class="soft" cx="293" cy="577" r="35"/>
+    <text class="muted" x="282" y="589" font-size="34">🔒</text>
+    <text class="muted body" x="260" y="635">预留</text>
+    <rect class="card" x="32" y="690" width="326" height="78" rx="24"/>
+    <text class="text body" x="56" y="728">家庭贡献排行</text>
+    <text class="muted small" x="56" y="756">妈妈 18 · 爸爸 15 · 奶奶 11 · 月嫂 8</text>
+    <g transform="translate(30,765)">
+      <rect class="nav" width="292" height="62" rx="31"/>
+      <rect class="selected" x="166" y="7" width="83" height="48" rx="24"/>
+      <text class="muted" x="36" y="43" font-size="30">✓</text>
+      <text class="muted" x="116" y="43" font-size="28">▣</text>
+      <text class="text" x="185" y="43" font-size="28">◌</text>
+      <text class="muted" x="247" y="43" font-size="28">▥</text>
+      <circle fill="#fff" cx="344" cy="31" r="33" filter="url(#softShadow)"/>
+      <circle class="assistant" cx="344" cy="31" r="24"/>
+      <text class="text" x="333" y="41" font-size="24">◡</text>
+    </g>
+  </g>
+
+  <!-- Page 4 -->
+  <g transform="translate(432,942) scale(0.86)">
+    <rect class="phone" width="390" height="844" rx="48"/>
+    <text class="text" x="38" y="58" font-size="24" font-weight="800">22:49</text>
+    <text class="text" x="303" y="58" font-size="21" font-weight="700">5G  ◼</text>
+    <circle class="assistant" cx="194" cy="120" r="45"/>
+    <text class="text" x="174" y="136" font-size="36">◡</text>
+    <text class="text section" x="75" y="194">育儿协作 Agent</text>
+    <text class="muted small" x="68" y="225">即时问答 · 视频入库 · 任务联动</text>
+    <rect class="soft" x="32" y="254" width="326" height="56" rx="28"/>
+    <rect class="dark" x="38" y="260" width="154" height="44" rx="22"/>
+    <text fill="#fff" x="76" y="290" font-size="20" font-weight="800">即时问答</text>
+    <text class="text" x="231" y="290" font-size="20" font-weight="800">视频入库</text>
+
+    <rect class="card" x="32" y="336" width="326" height="126" rx="24"/>
+    <text class="muted small" x="56" y="374">今天有什么计划？</text>
+    <text class="text body" x="56" y="409">今晚优先完成睡前护理</text>
+    <text class="muted tiny" x="56" y="439">依据：宝宝状态 · 视频 02:10 · 爸爸可用</text>
+    <rect class="card" x="32" y="488" width="326" height="110" rx="24"/>
+    <text class="text body" x="56" y="527">上传护理视频更新 RAG</text>
+    <rect class="dash" x="56" y="546" width="252" height="34" rx="12"/>
+    <text class="muted small" x="103" y="570">选择视频 / 抖音转写结果 / 本地文件</text>
+
+    <rect class="lav" x="32" y="626" width="326" height="86" rx="24"/>
+    <text class="text body" x="56" y="662">入库流程</text>
+    <text class="muted small" x="56" y="690">视频 → 转写 → 结构化 → RAG → 待办</text>
+    <rect class="warn" x="32" y="730" width="326" height="58" rx="20"/>
+    <text class="text small" x="56" y="764">医疗/用药/异常：提示咨询医护，不生成任务</text>
+
+    <g transform="translate(30,765)">
+      <rect class="nav" width="292" height="62" rx="31"/>
+      <rect class="selected" x="249" y="7" width="43" height="48" rx="24"/>
+      <text class="muted" x="36" y="43" font-size="30">✓</text>
+      <text class="muted" x="116" y="43" font-size="28">▣</text>
+      <text class="muted" x="185" y="43" font-size="28">◌</text>
+      <text class="text" x="247" y="43" font-size="28">▥</text>
+      <circle fill="#fff" cx="344" cy="31" r="33" filter="url(#softShadow)"/>
+      <circle class="assistant" cx="344" cy="31" r="24"/>
+      <text class="text" x="333" y="41" font-size="24">◡</text>
+    </g>
+  </g>
+
+  <!-- Bottom architecture notes -->
+  <g transform="translate(815,190) scale(0.56)" opacity="0">
+    <text class="text" x="0" y="0" font-size="38" font-weight="800">闭环如何安插进布局</text>
+    <rect class="card" x="0" y="38" width="1616" height="310" rx="28"/>
+    <g transform="translate(40,84)">
+      <rect class="blue" x="0" y="0" width="290" height="160" rx="22"/>
+      <text class="text section" x="24" y="48">1. 谁负责</text>
+      <text class="muted body" x="24" y="90">每个任务卡固定展示主责人、协作者、家庭组可见状态。</text>
+      <text class="muted small" x="24" y="130">开发对象：账号、家庭组、成员画像、权限。</text>
+      <rect class="peach" x="312" y="0" width="290" height="160" rx="22"/>
+      <text class="text section" x="336" y="48">2. 什么时候做</text>
+      <text class="muted body" x="336" y="90">日历和待办共享任务源，Agent 按可用时间自动排期。</text>
+      <text class="muted small" x="336" y="130">开发对象：timeSlot、提醒、日历导入。</text>
+      <rect class="lav" x="624" y="0" width="290" height="160" rx="22"/>
+      <text class="text section" x="648" y="48">3. 宝宝状态/依据</text>
+      <text class="muted body" x="648" y="90">任务详情显示宝宝状态、视频时间点、RAG 引用和注意事项。</text>
+      <text class="muted small" x="648" y="130">开发对象：结构化步骤、source、safety。</text>
+      <rect class="mint" x="936" y="0" width="290" height="160" rx="22"/>
+      <text class="text section" x="960" y="48">4. 完成沉淀</text>
+      <text class="muted body" x="960" y="90">完成记录进入贡献图；反馈回流成家庭经验库。</text>
+      <text class="muted small" x="960" y="130">开发对象：completion、badge、knowledge note。</text>
+      <rect class="warn" x="1248" y="0" width="290" height="160" rx="22"/>
+      <text class="text section" x="1272" y="48">5. 动态调整</text>
+      <text class="muted body" x="1272" y="90">成员不可用、宝宝状态变化时只调整受影响任务。</text>
+      <text class="muted small" x="1272" y="130">开发对象：adjust API、确认流。</text>
+    </g>
+    <text class="muted" x="40" y="272" font-size="24">底部固定导航：待办 / 日历 / 贡献 / Agent；右侧圆形 Agent 按钮全局保留，用于随时问答、上传视频、重新编排任务。</text>
+  </g>
+
+  <g transform="translate(820,170)">
+    <text class="text" x="0" y="0" font-size="32" font-weight="800">开发方向：把现有成果嵌入 4 页闭环</text>
+    <text class="muted" x="0" y="38" font-size="21">从 GitHub 已有 PRD / Schema / Ark 视频理解 / Safety / 测试样例出发，只先锁定页面板块。</text>
+
+    <rect class="card" x="0" y="78" width="840" height="116" rx="24"/>
+    <rect class="blue" x="26" y="104" width="142" height="64" rx="18"/>
+    <text class="text" x="48" y="145" font-size="26" font-weight="800">谁负责</text>
+    <text class="text" x="194" y="124" font-size="23" font-weight="800">家庭组 + 多账号 + 成员画像</text>
+    <text class="muted" x="194" y="156" font-size="20">任务卡固定显示主责人、协作者、可见范围；后续接账号和家庭组权限。</text>
+
+    <rect class="card" x="0" y="218" width="840" height="116" rx="24"/>
+    <rect class="peach" x="26" y="244" width="142" height="64" rx="18"/>
+    <text class="text" x="38" y="285" font-size="26" font-weight="800">何时做</text>
+    <text class="text" x="194" y="264" font-size="23" font-weight="800">待办与日历共用任务源</text>
+    <text class="muted" x="194" y="296" font-size="20">日历展示排期，也支持正常添加/导入；Agent 按成员可用时间局部调整。</text>
+
+    <rect class="card" x="0" y="358" width="840" height="116" rx="24"/>
+    <rect class="lav" x="26" y="384" width="142" height="64" rx="18"/>
+    <text class="text" x="34" y="425" font-size="26" font-weight="800">状态/依据</text>
+    <text class="text" x="194" y="404" font-size="23" font-weight="800">宝宝状态 + 视频时间点 + RAG 引用</text>
+    <text class="muted" x="194" y="436" font-size="20">每个任务都能追溯到护理步骤、来源片段、注意事项和安全边界。</text>
+
+    <rect class="card" x="0" y="498" width="840" height="116" rx="24"/>
+    <rect class="mint" x="26" y="524" width="142" height="64" rx="18"/>
+    <text class="text" x="38" y="565" font-size="26" font-weight="800">完成沉淀</text>
+    <text class="text" x="194" y="544" font-size="23" font-weight="800">完成记录进入贡献图，反馈回流知识库</text>
+    <text class="muted" x="194" y="576" font-size="20">热力图先统计完成任务数；徽章位预留，后续按规则解锁。</text>
+
+    <rect class="card" x="0" y="638" width="840" height="116" rx="24"/>
+    <rect class="warn" x="26" y="664" width="142" height="64" rx="18"/>
+    <text class="text" x="38" y="705" font-size="26" font-weight="800">Agent</text>
+    <text class="text" x="194" y="684" font-size="23" font-weight="800">即时问答 + 上传视频更新 RAG + 生成待办</text>
+    <text class="muted" x="194" y="716" font-size="20">医疗/用药/异常症状只做风险提示，不直接生成可执行护理任务。</text>
+
+    <rect class="soft" x="0" y="798" width="840" height="132" rx="28"/>
+    <text class="text" x="34" y="842" font-size="26" font-weight="800">固定导航规则</text>
+    <text class="muted" x="34" y="878" font-size="21">底部四 Tab：待办 / 日历 / 贡献 / Agent。</text>
+    <text class="muted" x="34" y="912" font-size="21">右侧圆形小助手全局保留，用于问答、上传、重新编排任务。</text>
+  </g>
+</svg>

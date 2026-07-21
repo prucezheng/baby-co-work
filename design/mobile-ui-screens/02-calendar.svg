@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="430" height="900" viewBox="0 0 430 900">
+  <title>育儿协作台 - 日历界面</title>
+  <desc>Editable modular UI export: agent sync banner, date strip, calendar import, agent scheduling, grouped task agenda, fixed bottom tabs, assistant FAB.</desc>
+  <defs>
+      <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#111827" flood-opacity="0.10"/>
+      </filter>
+      <style>
+        .bg { fill: #f4f5f7; }
+        .phone { fill: #ffffff; stroke: #eceef2; stroke-width: 2; }
+        .text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #111619; }
+        .muted { fill: #7c818a; }
+        .hair { stroke: #e6e8ec; stroke-width: 2; }
+        .pill { fill: #f6f6f7; }
+        .card { fill: #ffffff; stroke: #edf0f3; stroke-width: 2; filter: url(#softShadow); }
+        .soft { fill: #f7f7f8; }
+        .lav { fill: #eee8ff; }
+        .lav2 { fill: #ded2ff; }
+        .blue { fill: #edf2ff; }
+        .peach { fill: #fff0e9; }
+        .mint { fill: #edf8f0; }
+        .warn { fill: #fff6dc; }
+        .dark { fill: #111619; }
+        .line { stroke: #d9dde3; stroke-width: 2; fill: none; }
+        .dash { stroke: #e2e4e8; stroke-width: 3; stroke-dasharray: 11 11; fill: none; }
+        .nav { fill: #ffffff; filter: url(#softShadow); }
+        .selected { fill: #e9e9ea; }
+        .assistant { fill: #a98cff; }
+        .small { font-size: 21px; }
+        .body { font-size: 25px; font-weight: 600; }
+        .caption { font-size: 20px; }
+        .title { font-size: 54px; font-weight: 700; }
+        .section { font-size: 31px; font-weight: 700; }
+        .tiny { font-size: 17px; }
+      </style>
+    </defs>
+  <rect width="430" height="900" rx="0" fill="#f4f5f7"/>
+  <g id="02-calendar-screen" transform="translate(20 28)">
+  <rect class="phone" width="390" height="844" rx="48"/>
+  <text class="text" x="38" y="58" font-size="24" font-weight="800">22:49</text>
+  <text class="text" x="303" y="58" font-size="21" font-weight="700">5G  ◼</text>
+  <rect class="lav2" x="42" y="86" width="306" height="54" rx="27"/>
+  <text fill="#fff" x="93" y="121" font-size="22" font-weight="800">Agent 已同步今日任务与家庭日历</text>
+  <text class="text title" x="32" y="196">星期二</text>
+  <text class="text body" x="250" y="183">2026年7月 ›</text>
+  <g transform="translate(34,225)">
+    <text class="muted caption" x="0" y="20">周</text><text class="muted" x="-4" y="52" font-size="31">20</text>
+    <rect class="soft" x="57" y="-12" width="58" height="82" rx="24"/>
+    <text class="text caption" x="78" y="20">周</text><text class="text" x="73" y="53" font-size="31">21</text>
+    <text class="muted caption" x="148" y="20">周</text><text class="muted" x="143" y="52" font-size="31">22</text>
+    <text class="muted caption" x="219" y="20">周</text><text class="muted" x="214" y="52" font-size="31">23</text>
+    <text class="muted caption" x="288" y="20">周</text><text class="muted" x="283" y="52" font-size="31">24</text>
+  </g>
+
+  <g transform="translate(30,330)">
+    <rect class="blue" width="145" height="112" rx="24"/>
+    <text class="text" x="24" y="36" font-size="30">▦</text>
+    <text class="text body" x="24" y="76">导入日历</text>
+    <text class="muted tiny" x="24" y="101">家庭共享/提醒</text>
+    <rect class="lav" x="165" width="170" height="112" rx="24"/>
+    <text class="text" x="188" y="36" font-size="30">◉</text>
+    <text class="text body" x="188" y="76">Agent 排期</text>
+    <text class="muted tiny" x="188" y="101">按成员可用时间</text>
+  </g>
+  <rect class="pill" x="32" y="478" width="116" height="40" rx="20"/>
+  <text class="text body" x="55" y="506">上午 (1)⌄</text>
+  <rect class="card" x="32" y="542" width="326" height="96" rx="24"/>
+  <text class="text body" x="74" y="580">晨间喂养记录</text>
+  <text class="muted small" x="74" y="611">妈妈 · 08:00 · 10 分钟 · 来源 01:24</text>
+  <circle class="mint" cx="54" cy="579" r="18"/>
+  <circle class="line" cx="322" cy="589" r="17"/>
+  <rect class="pill" x="32" y="662" width="116" height="40" rx="20"/>
+  <text class="text body" x="55" y="690">晚上 (2)⌄</text>
+  <rect class="card" x="32" y="722" width="326" height="74" rx="24"/>
+  <text class="text body" x="74" y="759">睡前护理流程</text>
+  <text class="muted small" x="74" y="786">爸爸主责 · 宝宝状态触发提醒</text>
+  <circle class="lav2" cx="54" cy="759" r="18"/>
+  <g transform="translate(30,765)">
+    <rect class="nav" width="292" height="62" rx="31"/>
+    <rect class="selected" x="83" y="7" width="83" height="48" rx="24"/>
+    <text class="muted" x="36" y="43" font-size="30">✓</text>
+    <text class="text" x="116" y="43" font-size="28">▣</text>
+    <text class="muted" x="185" y="43" font-size="28">◌</text>
+    <text class="muted" x="247" y="43" font-size="28">▥</text>
+    <circle fill="#fff" cx="344" cy="31" r="33" filter="url(#softShadow)"/>
+    <circle class="assistant" cx="344" cy="31" r="24"/>
+    <text class="text" x="333" y="41" font-size="24">◡</text>
+  </g>
+  </g>
+</svg>

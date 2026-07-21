@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="430" height="900" viewBox="0 0 430 900">
+  <title>育儿协作台 - 待办界面</title>
+  <desc>Editable modular UI export: status bar, title actions, priority filters, task cards, knowledge capture block, add placeholder, fixed bottom tabs, assistant FAB.</desc>
+  <defs>
+      <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#111827" flood-opacity="0.10"/>
+      </filter>
+      <style>
+        .bg { fill: #f4f5f7; }
+        .phone { fill: #ffffff; stroke: #eceef2; stroke-width: 2; }
+        .text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #111619; }
+        .muted { fill: #7c818a; }
+        .hair { stroke: #e6e8ec; stroke-width: 2; }
+        .pill { fill: #f6f6f7; }
+        .card { fill: #ffffff; stroke: #edf0f3; stroke-width: 2; filter: url(#softShadow); }
+        .soft { fill: #f7f7f8; }
+        .lav { fill: #eee8ff; }
+        .lav2 { fill: #ded2ff; }
+        .blue { fill: #edf2ff; }
+        .peach { fill: #fff0e9; }
+        .mint { fill: #edf8f0; }
+        .warn { fill: #fff6dc; }
+        .dark { fill: #111619; }
+        .line { stroke: #d9dde3; stroke-width: 2; fill: none; }
+        .dash { stroke: #e2e4e8; stroke-width: 3; stroke-dasharray: 11 11; fill: none; }
+        .nav { fill: #ffffff; filter: url(#softShadow); }
+        .selected { fill: #e9e9ea; }
+        .assistant { fill: #a98cff; }
+        .small { font-size: 21px; }
+        .body { font-size: 25px; font-weight: 600; }
+        .caption { font-size: 20px; }
+        .title { font-size: 54px; font-weight: 700; }
+        .section { font-size: 31px; font-weight: 700; }
+        .tiny { font-size: 17px; }
+      </style>
+    </defs>
+  <rect width="430" height="900" rx="0" fill="#f4f5f7"/>
+  <g id="01-todo-screen" transform="translate(20 28)">
+  <rect class="phone" width="390" height="844" rx="48"/>
+  <text class="text" x="38" y="58" font-size="24" font-weight="800">22:49</text>
+  <text class="text" x="303" y="58" font-size="21" font-weight="700">5G  ◼</text>
+  <text class="text title" x="34" y="150">待办</text>
+  <circle class="soft" cx="194" cy="137" r="18"/>
+  <text class="muted" x="185" y="146" font-size="28" font-weight="700">+</text>
+  <rect class="lav" x="177" y="95" width="86" height="48" rx="24"/>
+  <text class="text" x="205" y="127" font-size="24" font-weight="800">Pro</text>
+  <rect class="pill" x="275" y="91" width="88" height="54" rx="27"/>
+  <text class="text" x="294" y="128" font-size="36" font-weight="900">⋯  +</text>
+
+  <g transform="translate(32,198)">
+    <rect class="peach" width="80" height="38" rx="19"/>
+    <text class="text body" x="23" y="27">高</text>
+    <text class="text small" x="54" y="26">⌃</text>
+    <circle class="soft" cx="332" cy="18" r="14"/>
+    <text class="muted" x="324" y="27" font-size="26" font-weight="700">+</text>
+  </g>
+  <g transform="translate(32,254)">
+    <rect class="warn" width="80" height="38" rx="19"/>
+    <text class="text body" x="23" y="27">中</text>
+    <text class="text small" x="54" y="26">⌃</text>
+    <circle class="soft" cx="332" cy="18" r="14"/>
+    <text class="muted" x="324" y="27" font-size="26" font-weight="700">+</text>
+  </g>
+  <g transform="translate(32,310)">
+    <rect class="blue" width="80" height="38" rx="19"/>
+    <text class="text body" x="23" y="27">低</text>
+    <text class="text small" x="54" y="26">⌃</text>
+    <circle class="soft" cx="332" cy="18" r="14"/>
+    <text class="muted" x="324" y="27" font-size="26" font-weight="700">+</text>
+  </g>
+
+  <rect class="pill" x="32" y="376" width="130" height="44" rx="22"/>
+  <text class="text" x="50" y="405" font-size="24" font-weight="800">待办事项⌄</text>
+  <rect class="card" x="32" y="444" width="326" height="118" rx="24"/>
+  <circle class="lav2" cx="66" cy="484" r="24"/>
+  <text class="text" x="56" y="493" font-size="24">👶</text>
+  <text class="text body" x="102" y="483">睡前用品准备</text>
+  <text class="muted small" x="102" y="513">爸爸负责 · 20:00 · 奶奶协助</text>
+  <text class="muted tiny" x="102" y="541">来源：视频 02:10 · 状态：宝宝刚喂奶</text>
+  <circle class="line" cx="322" cy="491" r="18"/>
+  <rect class="mint" x="32" y="584" width="326" height="82" rx="24"/>
+  <text class="text body" x="56" y="620">完成后沉淀为家庭经验</text>
+  <text class="muted small" x="56" y="649">步骤、注意事项、负责人反馈进入知识库</text>
+  <rect class="dash" x="32" y="690" width="326" height="54" rx="16"/>
+  <text class="muted body" x="55" y="725">添加到你的清单</text>
+  <text class="muted" x="326" y="725" font-size="28" font-weight="800">+</text>
+
+  <g transform="translate(30,765)">
+    <rect class="nav" width="292" height="62" rx="31"/>
+    <rect class="selected" x="7" y="7" width="83" height="48" rx="24"/>
+    <text class="text" x="36" y="43" font-size="30">✓</text>
+    <text class="muted" x="116" y="43" font-size="28">▣</text>
+    <text class="muted" x="185" y="43" font-size="28">◌</text>
+    <text class="muted" x="247" y="43" font-size="28">▥</text>
+    <circle fill="#fff" cx="344" cy="31" r="33" filter="url(#softShadow)"/>
+    <circle class="assistant" cx="344" cy="31" r="24"/>
+    <text class="text" x="333" y="41" font-size="24">◡</text>
+  </g>
+  </g>
+</svg>

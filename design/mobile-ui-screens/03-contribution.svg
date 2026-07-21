@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="430" height="900" viewBox="0 0 430 900">
+  <title>育儿协作台 - 贡献界面</title>
+  <desc>Editable modular UI export: profile controls, yearly contribution heatmap, achievement badges, family contribution ranking, fixed bottom tabs, assistant FAB.</desc>
+  <defs>
+      <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#111827" flood-opacity="0.10"/>
+      </filter>
+      <style>
+        .bg { fill: #f4f5f7; }
+        .phone { fill: #ffffff; stroke: #eceef2; stroke-width: 2; }
+        .text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #111619; }
+        .muted { fill: #7c818a; }
+        .hair { stroke: #e6e8ec; stroke-width: 2; }
+        .pill { fill: #f6f6f7; }
+        .card { fill: #ffffff; stroke: #edf0f3; stroke-width: 2; filter: url(#softShadow); }
+        .soft { fill: #f7f7f8; }
+        .lav { fill: #eee8ff; }
+        .lav2 { fill: #ded2ff; }
+        .blue { fill: #edf2ff; }
+        .peach { fill: #fff0e9; }
+        .mint { fill: #edf8f0; }
+        .warn { fill: #fff6dc; }
+        .dark { fill: #111619; }
+        .line { stroke: #d9dde3; stroke-width: 2; fill: none; }
+        .dash { stroke: #e2e4e8; stroke-width: 3; stroke-dasharray: 11 11; fill: none; }
+        .nav { fill: #ffffff; filter: url(#softShadow); }
+        .selected { fill: #e9e9ea; }
+        .assistant { fill: #a98cff; }
+        .small { font-size: 21px; }
+        .body { font-size: 25px; font-weight: 600; }
+        .caption { font-size: 20px; }
+        .title { font-size: 54px; font-weight: 700; }
+        .section { font-size: 31px; font-weight: 700; }
+        .tiny { font-size: 17px; }
+      </style>
+    </defs>
+  <rect width="430" height="900" rx="0" fill="#f4f5f7"/>
+  <g id="03-contribution-screen" transform="translate(20 28)">
+  <rect class="phone" width="390" height="844" rx="48"/>
+  <text class="text" x="38" y="58" font-size="24" font-weight="800">22:49</text>
+  <text class="text" x="303" y="58" font-size="21" font-weight="700">5G  ◼</text>
+  <rect class="pill" x="38" y="92" width="88" height="50" rx="25"/>
+  <text class="text body" x="59" y="124">weier</text>
+  <rect class="lav" x="143" y="92" width="126" height="50" rx="25"/>
+  <text class="text body" x="171" y="125">Pro ✦</text>
+  <rect class="pill" x="291" y="92" width="60" height="50" rx="25"/>
+  <text class="text" x="309" y="126" font-size="31">⚙</text>
+  <text class="text section" x="38" y="204">52 次完成贡献</text>
+  <text class="muted small" x="38" y="232">过去 1 年 · 按家庭任务完成数统计</text>
+
+  <rect class="card" x="32" y="260" width="326" height="182" rx="24"/>
+  <text class="muted tiny" x="55" y="296">Jul  Aug  Sep  Oct  Nov  Dec  Jan  Feb  Mar  Apr  May</text>
+  <g transform="translate(58,315)">
+    <rect fill="#eef0f2" x="0" y="0" width="10" height="10" rx="2"/>
+    <rect fill="#eef0f2" x="17" y="0" width="10" height="10" rx="2"/>
+    <rect fill="#eef0f2" x="34" y="0" width="10" height="10" rx="2"/>
+    <rect fill="#d8f0dc" x="255" y="0" width="10" height="10" rx="2"/>
+    <rect fill="#35b25d" x="272" y="0" width="10" height="10" rx="2"/>
+    <rect fill="#eef0f2" x="289" y="0" width="10" height="10" rx="2"/>
+    <rect fill="#eef0f2" x="0" y="17" width="10" height="10" rx="2"/>
+    <rect fill="#eef0f2" x="17" y="17" width="10" height="10" rx="2"/>
+    <rect fill="#eef0f2" x="34" y="17" width="10" height="10" rx="2"/>
+    <rect fill="#177437" x="238" y="17" width="10" height="10" rx="2"/>
+    <rect fill="#35b25d" x="255" y="17" width="10" height="10" rx="2"/>
+    <rect fill="#eef0f2" x="272" y="17" width="10" height="10" rx="2"/>
+    <rect fill="#eef0f2" x="289" y="17" width="10" height="10" rx="2"/>
+    <rect fill="#eef0f2" x="0" y="34" width="10" height="10" rx="2"/>
+    <rect fill="#eef0f2" x="17" y="34" width="10" height="10" rx="2"/>
+    <rect fill="#eef0f2" x="34" y="34" width="10" height="10" rx="2"/>
+    <rect fill="#2ea44f" x="221" y="34" width="10" height="10" rx="2"/>
+    <rect fill="#eef0f2" x="238" y="34" width="10" height="10" rx="2"/>
+    <rect fill="#35b25d" x="255" y="34" width="10" height="10" rx="2"/>
+    <rect fill="#d8f0dc" x="289" y="34" width="10" height="10" rx="2"/>
+    <rect fill="#eef0f2" x="0" y="51" width="10" height="10" rx="2"/>
+    <rect fill="#eef0f2" x="17" y="51" width="10" height="10" rx="2"/>
+    <rect fill="#177437" x="238" y="51" width="10" height="10" rx="2"/>
+    <rect fill="#35b25d" x="272" y="51" width="10" height="10" rx="2"/>
+    <rect fill="#eef0f2" x="289" y="51" width="10" height="10" rx="2"/>
+    <rect fill="#eef0f2" x="0" y="68" width="10" height="10" rx="2"/>
+    <rect fill="#eef0f2" x="17" y="68" width="10" height="10" rx="2"/>
+    <rect fill="#177437" x="221" y="68" width="10" height="10" rx="2"/>
+    <rect fill="#eef0f2" x="238" y="68" width="10" height="10" rx="2"/>
+    <rect fill="#35b25d" x="255" y="68" width="10" height="10" rx="2"/>
+    <rect fill="#eef0f2" x="272" y="68" width="10" height="10" rx="2"/>
+    <rect fill="#eef0f2" x="289" y="68" width="10" height="10" rx="2"/>
+  </g>
+  <text class="muted tiny" x="244" y="416">Less  ▫ ▪ ▪ ▪  More</text>
+
+  <text class="text section" x="38" y="496">成就徽章</text>
+  <rect class="card" x="32" y="520" width="326" height="142" rx="24"/>
+  <circle class="lav2" cx="93" cy="577" r="35"/>
+  <text class="text" x="79" y="589" font-size="38" font-weight="900">1</text>
+  <text class="text body" x="52" y="635">日间连胜</text>
+  <circle class="mint" cx="195" cy="577" r="35"/>
+  <text class="text" x="182" y="589" font-size="38" font-weight="900">0</text>
+  <text class="text body" x="164" y="635">完工</text>
+  <circle class="soft" cx="293" cy="577" r="35"/>
+  <text class="muted" x="282" y="589" font-size="34">🔒</text>
+  <text class="muted body" x="260" y="635">预留</text>
+  <rect class="card" x="32" y="690" width="326" height="78" rx="24"/>
+  <text class="text body" x="56" y="728">家庭贡献排行</text>
+  <text class="muted small" x="56" y="756">妈妈 18 · 爸爸 15 · 奶奶 11 · 月嫂 8</text>
+  <g transform="translate(30,765)">
+    <rect class="nav" width="292" height="62" rx="31"/>
+    <rect class="selected" x="166" y="7" width="83" height="48" rx="24"/>
+    <text class="muted" x="36" y="43" font-size="30">✓</text>
+    <text class="muted" x="116" y="43" font-size="28">▣</text>
+    <text class="text" x="185" y="43" font-size="28">◌</text>
+    <text class="muted" x="247" y="43" font-size="28">▥</text>
+    <circle fill="#fff" cx="344" cy="31" r="33" filter="url(#softShadow)"/>
+    <circle class="assistant" cx="344" cy="31" r="24"/>
+    <text class="text" x="333" y="41" font-size="24">◡</text>
+  </g>
+  </g>
+</svg>

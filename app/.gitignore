@@ -17,6 +17,10 @@ logs/
 playwright-report/
 test-results/
 
+# Python cache
+__pycache__/
+*.pyc
+
 # 系统
 .DS_Store
 Thumbs.db

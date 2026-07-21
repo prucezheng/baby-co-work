@@ -30,6 +30,8 @@ class TranscriptionError(RuntimeError):
 
 
 def transcribe_media_file(file_path: str | Path, *, keep_files: bool = False) -> str:
+    load_app_env()
+
     source_path = Path(file_path).expanduser()
     if not source_path.exists():
         raise TranscriptionError(f"file does not exist: {source_path}")
@@ -66,6 +68,30 @@ def transcribe_media_file(file_path: str | Path, *, keep_files: bool = False) ->
     finally:
         if not keep_files:
             shutil.rmtree(temp_dir, ignore_errors=True)
+
+
+def load_app_env() -> None:
+    env_path = find_app_env_file()
+    if env_path is None:
+        return
+
+    for raw_line in env_path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        if not key or key in os.environ:
+            continue
+        os.environ[key] = value.strip().strip('"').strip("'")
+
+
+def find_app_env_file() -> Path | None:
+    for parent in Path(__file__).resolve().parents:
+        candidate = parent / ".env"
+        if candidate.exists():
+            return candidate
+    return None
 
 
 def ensure_audio_input(media_path: Path, output_dir: Path) -> Path:
