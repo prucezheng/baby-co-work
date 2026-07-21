@@ -1,0 +1,35 @@
+# 密钥（绝不入库）
+apikey.txt
+.env
+.env.*
+!.env.example
+
+# 本地测试媒体
+*.mp4
+*.mov
+*.webm
+*.mp3
+*.wav
+
+# 依赖与构建
+node_modules/
+dist/
+dist-server/
+
+# 上传媒体与运行日志
+uploads/
+*.log
+logs/
+
+# 测试产物
+playwright-report/
+test-results/
+
+# Python
+__pycache__/
+*.egg-info/
+.venv/
+
+# 系统
+.DS_Store
+Thumbs.db
