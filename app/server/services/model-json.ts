@@ -1,5 +1,5 @@
-import { analysisSchema } from '../../src/domain/schemas';
-import type { Analysis } from '../../src/domain/types';
+import { aiTaskDraftSchema, analysisSchema } from '../../src/domain/schemas';
+import type { AiTaskDraft, Analysis } from '../../src/domain/types';
 import { upgradeStepRisk } from './safety';
 
 export class ModelOutputError extends Error {
@@ -40,6 +40,16 @@ export function parseAnalysisOutput(raw: string, videoId: string): Analysis {
   const result = analysisSchema.safeParse(record);
   if (!result.success) {
     throw new ModelOutputError('模型输出不符合结构规范', result.error.issues);
+  }
+  return result.data;
+}
+
+// Task 7（PRD v1.1）：解析意图 → 任务草稿的模型输出
+export function parseTaskDraftOutput(raw: string): AiTaskDraft {
+  const data = extractJson(raw);
+  const result = aiTaskDraftSchema.safeParse(data);
+  if (!result.success) {
+    throw new ModelOutputError('任务草稿不符合结构规范', result.error.issues);
   }
   return result.data;
 }

@@ -1,5 +1,6 @@
 import express from 'express';
 import { createAnalyzeRouter } from './routes/analyze';
+import { createTasksRouter } from './routes/tasks';
 import { createArkClient, ArkError } from './services/ark-client';
 import type { ArkClient } from './services/ark-client';
 import { getConfig } from './config';
@@ -28,5 +29,6 @@ export function createApp(deps: AppDependencies = {}) {
   const app = express();
   app.use(express.json({ limit: '1mb' }));
   app.use('/api/analyze', createAnalyzeRouter(arkClient));
+  app.use('/api/tasks', createTasksRouter(arkClient));
   return app;
 }

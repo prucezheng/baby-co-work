@@ -1,0 +1,15 @@
+{
+  "title": "睡前用品准备",
+  "assignee_member_id": "dad-1",
+  "due_at": "2026-07-21T20:00:00+08:00",
+  "duration_min": 15,
+  "completion_criteria": "干净衣物、纸尿裤和毛巾放在床边伸手可及处，室温确认适宜",
+  "assignment_reason": "爸爸傍晚和夜间有空，且无能力限制，今日负载最低",
+  "knowledge_notes": [],
+  "safety_notice": null,
+  "subtasks": [
+    { "title": "准备干净衣物和纸尿裤", "order": 1, "required": true, "source": "ai" },
+    { "title": "检查室温并调暗灯光", "order": 2, "required": true, "source": "ai" },
+    { "title": "把用品放到床边固定位置", "order": 3, "required": false, "source": "ai" }
+  ]
+}
