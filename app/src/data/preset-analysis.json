@@ -1,0 +1,148 @@
+{
+  "videoId": "smoke-video",
+  "topic": "新生儿10项错误护理纠正及正确日常护理指引",
+  "applicableScene": "家庭居家日常新生儿全阶段日常护理场景",
+  "supplies": [
+    "新生儿纸尿裤、适龄配方奶粉、零高度定型枕、纯棉婴幼儿衣物"
+  ],
+  "cautions": [
+    "护理前全家统一护理标准，避免育儿分歧产生家庭矛盾",
+    "操作需结合宝宝个体情况，出现异常及时咨询专业医护"
+  ],
+  "uncertainties": [
+    "视频中推荐的零高度定型枕适配性需结合宝宝头型确认",
+    "不同新生儿个体发育差异对应的护理细节需咨询医护确认"
+  ],
+  "steps": [
+    {
+      "id": "step-1",
+      "order": 1,
+      "title": "正确更换新生儿纸尿裤",
+      "instruction": "不要拎起宝宝双腿抬高臀部，先铺平纸尿裤，通过侧身操作调整穿戴即可",
+      "startSec": 16,
+      "endSec": 52,
+      "supplies": [
+        "新生儿纸尿裤"
+      ],
+      "caution": "避免抬高宝宝臀部造成吐奶、牵拉损伤髋关节",
+      "riskLevel": "low",
+      "userConfirmed": false
+    },
+    {
+      "id": "step-2",
+      "order": 2,
+      "title": "按官方比例冲调配方奶粉",
+      "instruction": "不要擅自更改粉水比例，冲奶前仔细查看奶粉罐标注的配比说明",
+      "startSec": 53,
+      "endSec": 82,
+      "supplies": [
+        "适龄配方奶粉、婴幼儿温水"
+      ],
+      "caution": "冲奶过稠易加重宝宝肠胃负担，过稀会营养不足，建议咨询儿科医护确认喂养细节",
+      "riskLevel": "medical",
+      "userConfirmed": false
+    },
+    {
+      "id": "step-3",
+      "order": 3,
+      "title": "避免亲吻新生儿面部",
+      "instruction": "成人不要亲吻宝宝口鼻脸颊，想表达爱意可以亲吻宝宝手脚位置",
+      "startSec": 83,
+      "endSec": 109,
+      "supplies": [],
+      "caution": "避免成人携带的病菌传染给免疫力弱的新生儿，引发感染",
+      "riskLevel": "low",
+      "userConfirmed": false
+    },
+    {
+      "id": "step-4",
+      "order": 4,
+      "title": "不给新生儿使用高枕头",
+      "instruction": "新生儿颈椎未发育完全，不要使用有高度的枕头，可选中间完全平的零高度定型枕",
+      "startSec": 110,
+      "endSec": 143,
+      "supplies": [
+        "零高度新生儿定型枕"
+      ],
+      "caution": "高枕头会让宝宝吃奶费劲，还可能睡偏头型、影响颈椎发育",
+      "riskLevel": "low",
+      "userConfirmed": false
+    },
+    {
+      "id": "step-5",
+      "order": 5,
+      "title": "不要给新生儿剃光头",
+      "instruction": "胎发稀黄和后续头发生长状态无关，剃光头易损伤毛囊，如需理发剪短即可",
+      "startSec": 144,
+      "endSec": 173,
+      "supplies": [
+        "婴幼儿专用理发剪"
+      ],
+      "caution": "不要剃光宝宝头皮，避免划伤头皮引发毛囊感染",
+      "riskLevel": "low",
+      "userConfirmed": false
+    },
+    {
+      "id": "step-6",
+      "order": 6,
+      "title": "不要给新生儿绑腿",
+      "instruction": "新生儿自然呈W型腿是最舒适的姿势，不要用绑带束缚宝宝双腿，顺其自然即可",
+      "startSec": 174,
+      "endSec": 203,
+      "supplies": [],
+      "caution": "绑腿会让宝宝睡眠不安稳，严重会影响髋关节发育，建议咨询儿科医护确认肢体发育状态",
+      "riskLevel": "medical",
+      "userConfirmed": false
+    },
+    {
+      "id": "step-7",
+      "order": 7,
+      "title": "夜间不要整晚开小夜灯",
+      "instruction": "整夜开微光小夜灯会抑制新生儿褪黑素分泌，等宝宝醒来需要照料时再开灯即可",
+      "startSec": 204,
+      "endSec": 223,
+      "supplies": [],
+      "caution": "持续弱光会让宝宝睡眠变浅，还可能影响后续视力发育",
+      "riskLevel": "low",
+      "userConfirmed": false
+    },
+    {
+      "id": "step-8",
+      "order": 8,
+      "title": "不给小月龄新生儿把屎把尿",
+      "instruction": "不要提前给小月龄宝宝把屎把尿，正常使用纸尿裤即可，等宝宝发育到合适月龄再进行如厕训练",
+      "startSec": 224,
+      "endSec": 257,
+      "supplies": [
+        "新生儿纸尿裤"
+      ],
+      "caution": "过早把屎把尿易损伤宝宝脊柱、影响自主排便意识建立，建议咨询儿科医护确认如厕训练适龄时间",
+      "riskLevel": "medical",
+      "userConfirmed": false
+    },
+    {
+      "id": "step-9",
+      "order": 9,
+      "title": "不要剧烈摇晃哄睡新生儿",
+      "instruction": "新生儿大脑脆弱类似豆腐脑，剧烈摇晃会造成颅内晃动损伤，可抱着宝宝伴随身体缓慢轻晃安抚",
+      "startSec": 258,
+      "endSec": 283,
+      "supplies": [],
+      "caution": "剧烈摇晃可能造成不可逆脑损伤留下后遗症，宝宝出现异常反应要立刻就医",
+      "riskLevel": "medical",
+      "userConfirmed": false
+    },
+    {
+      "id": "step-10",
+      "order": 10,
+      "title": "新生儿刚吃完奶不要立刻平躺",
+      "instruction": "刚吃完奶先让宝宝保持右侧卧位躺半小时，之后再切换成平躺姿势",
+      "startSec": 284,
+      "endSec": 317,
+      "supplies": [],
+      "caution": "立刻平躺容易引发吐奶呛咳，正确睡姿可以防呛咳还能预防偏头型",
+      "riskLevel": "low",
+      "userConfirmed": false
+    }
+  ]
+}
