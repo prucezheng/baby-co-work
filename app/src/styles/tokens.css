@@ -1,0 +1,20 @@
+:root {
+  --color-brand: #6e7cf6;
+  --color-brand-soft: #eef0ff;
+  --color-text: #22252b;
+  --color-muted: #69707d;
+  --color-surface: #ffffff;
+  --color-background: #f7f8fc;
+  --color-success: #2b9a66;
+  --color-warning: #c47b16;
+  --color-danger: #c9414b;
+  --color-border: #e4e7ee;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+}
