@@ -36,14 +36,14 @@ export ARK_BASE_URL="https://ark.cn-beijing.volces.com/api/v3"
 ## 使用
 
 ```bash
-cd "app/audio transcript"
+cd "app/Doubao-Seed-2.0-lite-260428"
 python3 -m ark_audio_transcriber "/path/to/video.mp4"
 ```
 
 安装为命令：
 
 ```bash
-cd "app/audio transcript"
+cd "app/Doubao-Seed-2.0-lite-260428"
 python3 -m pip install -e .
 ark-audio-transcribe "/path/to/video.mp4"
 ```
