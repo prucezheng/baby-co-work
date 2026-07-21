@@ -1,0 +1,46 @@
+{
+  "videoId": "preset-video-1",
+  "topic": "新生儿睡前护理流程",
+  "applicableScene": "每晚睡前 30 分钟的家庭护理",
+  "supplies": ["干净衣物", "纸尿裤", "温水", "柔软毛巾"],
+  "cautions": ["保持室温适宜", "动作轻柔，避免强光直射"],
+  "uncertainties": [],
+  "steps": [
+    {
+      "id": "step-1",
+      "order": 1,
+      "title": "准备睡前用品",
+      "instruction": "将干净衣物、纸尿裤和毛巾放在伸手可及的位置",
+      "startSec": 12,
+      "endSec": 45,
+      "supplies": ["干净衣物", "纸尿裤"],
+      "caution": "提前准备，避免中途离开宝宝",
+      "riskLevel": "low",
+      "userConfirmed": false
+    },
+    {
+      "id": "step-2",
+      "order": 2,
+      "title": "检查室温与环境",
+      "instruction": "确认室温在 24-26 度，调暗灯光，保持安静",
+      "startSec": 46,
+      "endSec": 80,
+      "supplies": [],
+      "caution": "",
+      "riskLevel": "confirm",
+      "userConfirmed": false
+    },
+    {
+      "id": "step-3",
+      "order": 3,
+      "title": "清洁与更换纸尿裤",
+      "instruction": "用温水和柔软毛巾清洁，再换上干净纸尿裤",
+      "startSec": 81,
+      "endSec": 150,
+      "supplies": ["温水", "柔软毛巾", "纸尿裤"],
+      "caution": "全程托住宝宝头颈部",
+      "riskLevel": "confirm",
+      "userConfirmed": false
+    }
+  ]
+}
