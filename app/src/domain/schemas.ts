@@ -108,6 +108,7 @@ export const completionEventSchema = z.object({
   event_type: z.enum(['completed', 'undo', 'skipped', 'reassigned']),
   completion_source: z.enum(['self', 'substitute', 'automatic']).optional(),
   substitute_reason: z.string().trim().min(1).max(120).optional(),
+  reverts_event_id: uuidLikeSchema.optional(),
   occurred_at: isoDateTimeSchema,
   task_version: z.number().int().min(1),
   idempotency_key: z.string().trim().min(1).max(120)
@@ -124,6 +125,13 @@ export const completionEventSchema = z.object({
       code: 'custom',
       path: ['substitute_reason'],
       message: 'substitute completions require a reason'
+    });
+  }
+  if (event.event_type === 'undo' && !event.reverts_event_id) {
+    ctx.addIssue({
+      code: 'custom',
+      path: ['reverts_event_id'],
+      message: 'undo events require reverts_event_id'
     });
   }
 });
