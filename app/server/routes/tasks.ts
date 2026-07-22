@@ -5,17 +5,19 @@ import { Router } from 'express';
 import { z } from 'zod';
 import type { TaskOrchestrator } from '../services/task-orchestrator';
 import type { TaskEventService } from '../services/task-events';
-import type { TaskRepository, FamilyRepository, EventRepository } from '../repositories/types';
+import type { TaskRepository, FamilyRepository } from '../repositories/types';
 import { createTaskInputSchema, familyMemberSchema } from '../../src/domain/schemas';
 import { ArkError } from '../services/ark-client';
 import { ModelOutputError } from '../services/model-json';
 
-const createTaskRequestSchema = z.object({
+export const createTaskRequestSchema = z.object({
   request: createTaskInputSchema,
   members: z.array(familyMemberSchema).min(1).max(8),
   current_time: z.string().datetime({ offset: true }).optional(),
   daily_load_minutes: z.record(z.string(), z.number().int().min(0)).optional()
 });
+
+export type CreateTaskRequestBody = z.infer<typeof createTaskRequestSchema>;
 
 const completionSchema = z.object({
   task_id: z.string().trim().min(1),
@@ -32,11 +34,10 @@ export function createTasksRouter(
   orchestrator: TaskOrchestrator,
   taskEventService: TaskEventService,
   taskRepo: TaskRepository,
-  familyRepo: FamilyRepository
+  _familyRepo: FamilyRepository
 ): Router {
   const router = Router();
 
-  // POST /api/tasks — 创建任务
   router.post('/', async (req, res) => {
     const parsed = createTaskRequestSchema.safeParse(req.body);
     if (!parsed.success) {
@@ -70,7 +71,6 @@ export function createTasksRouter(
     }
   });
 
-  // POST /api/tasks/:taskId/complete — 记录完成事件
   router.post('/:taskId/complete', async (req, res) => {
     const parsed = completionSchema.safeParse(req.body);
     if (!parsed.success) {
@@ -78,7 +78,16 @@ export function createTasksRouter(
       return;
     }
 
-    const { task_id, actor_member_id, event_type, completion_source, substitute_reason, reverts_event_id, assignee_member_id, idempotency_key } = parsed.data;
+    const {
+      task_id,
+      actor_member_id,
+      event_type,
+      completion_source,
+      substitute_reason,
+      reverts_event_id,
+      assignee_member_id,
+      idempotency_key
+    } = parsed.data;
 
     try {
       const { event, updatedTask } = await taskEventService.recordCompletion({
@@ -107,7 +116,6 @@ export function createTasksRouter(
     }
   });
 
-  // GET /api/tasks?family_id=xxx — 获取家庭任务列表
   router.get('/', async (req, res) => {
     try {
       const familyId = req.query.family_id as string | undefined;
@@ -129,7 +137,6 @@ export function createTasksRouter(
     }
   });
 
-  // GET /api/tasks/:taskId — 获取单个任务
   router.get('/:taskId', async (req, res) => {
     try {
       const task = await taskRepo.getTask(req.params.taskId);

@@ -5,6 +5,8 @@ export interface ServerConfig {
   arkModel: string;
   arkBaseUrl: string;
   publicBaseUrl: string;
+  pythonBin: string;
+  audioTranscriberDir: string;
   mediaTtlHours: number;
   port: number;
   dataDir: string;
@@ -24,6 +26,10 @@ export function getConfig(): ServerConfig {
     arkModel: process.env.ARK_MODEL ?? 'doubao-seed-2-0-lite-260428',
     arkBaseUrl: process.env.ARK_BASE_URL ?? 'https://ark.cn-beijing.volces.com/api/v3',
     publicBaseUrl: process.env.PUBLIC_BASE_URL ?? `http://localhost:${process.env.PORT ?? 4174}`,
+    pythonBin: process.env.PYTHON_BIN ?? 'python3',
+    audioTranscriberDir:
+      process.env.AUDIO_TRANSCRIBER_DIR ??
+      new URL('../Doubao-Seed-2.0-lite-260428', import.meta.url).pathname,
     mediaTtlHours: Number(process.env.MEDIA_TTL_HOURS ?? 24),
     port: Number(process.env.PORT ?? 4174),
     dataDir: process.env.DATA_DIR ?? 'data',
