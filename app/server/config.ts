@@ -7,6 +7,8 @@ export interface ServerConfig {
   publicBaseUrl: string;
   mediaTtlHours: number;
   port: number;
+  dataDir: string;
+  sessionTtlHours: number;
 }
 
 // 本地开发时尝试加载 app/.env；文件不存在时静默忽略（生产环境用真实环境变量）
@@ -23,6 +25,8 @@ export function getConfig(): ServerConfig {
     arkBaseUrl: process.env.ARK_BASE_URL ?? 'https://ark.cn-beijing.volces.com/api/v3',
     publicBaseUrl: process.env.PUBLIC_BASE_URL ?? `http://localhost:${process.env.PORT ?? 4174}`,
     mediaTtlHours: Number(process.env.MEDIA_TTL_HOURS ?? 24),
-    port: Number(process.env.PORT ?? 4174)
+    port: Number(process.env.PORT ?? 4174),
+    dataDir: process.env.DATA_DIR ?? 'data',
+    sessionTtlHours: Number(process.env.SESSION_TTL_HOURS ?? 72)
   };
 }

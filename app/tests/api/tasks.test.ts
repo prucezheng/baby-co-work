@@ -58,7 +58,7 @@ const validBody = {
 describe('POST /api/tasks', () => {
   it('publishes a task with assignee and subtasks directly', async () => {
     const client = fakeClient([JSON.stringify(fixture)]);
-    const response = await request(createApp({ arkClient: client })).post('/api/tasks').send(validBody);
+    const response = await request(createApp({ arkClient: client, skipAuth: true })).post('/api/tasks').send(validBody);
 
     expect(response.status).toBe(201);
     const task = response.body.task;
@@ -72,7 +72,7 @@ describe('POST /api/tasks', () => {
   it('falls back to 待认领 when the model assigns an unknown member', async () => {
     const badDraft = { ...fixture, assignee_member_id: 'ghost-member' };
     const client = fakeClient([JSON.stringify(badDraft)]);
-    const response = await request(createApp({ arkClient: client })).post('/api/tasks').send(validBody);
+    const response = await request(createApp({ arkClient: client, skipAuth: true })).post('/api/tasks').send(validBody);
 
     expect(response.status).toBe(201);
     expect(response.body.task.assignee_member_id).toBeNull();
@@ -82,7 +82,7 @@ describe('POST /api/tasks', () => {
   it('falls back to 待认领 when the assignment violates night limitations', async () => {
     const nightDraft = { ...fixture, assignee_member_id: 'grandma-1', due_at: '2026-07-21T23:30:00+08:00' };
     const client = fakeClient([JSON.stringify(nightDraft)]);
-    const response = await request(createApp({ arkClient: client })).post('/api/tasks').send(validBody);
+    const response = await request(createApp({ arkClient: client, skipAuth: true })).post('/api/tasks').send(validBody);
 
     expect(response.status).toBe(201);
     expect(response.body.task.assignee_member_id).toBeNull();
@@ -95,7 +95,7 @@ describe('POST /api/tasks', () => {
     };
     const medicalDraft = { ...fixture, title: '宝宝发热处理', safety_notice: null };
     const client = fakeClient([JSON.stringify(medicalDraft)]);
-    const response = await request(createApp({ arkClient: client })).post('/api/tasks').send(medicalBody);
+    const response = await request(createApp({ arkClient: client, skipAuth: true })).post('/api/tasks').send(medicalBody);
 
     expect(response.status).toBe(201);
     expect(response.body.task.status).toBe('pending');
@@ -105,7 +105,7 @@ describe('POST /api/tasks', () => {
 
   it('repairs invalid model output exactly once', async () => {
     const client = fakeClient(['not json', JSON.stringify(fixture)]);
-    const response = await request(createApp({ arkClient: client })).post('/api/tasks').send(validBody);
+    const response = await request(createApp({ arkClient: client, skipAuth: true })).post('/api/tasks').send(validBody);
 
     expect(response.status).toBe(201);
     expect(client.chat).toHaveBeenCalledTimes(2);
@@ -113,7 +113,7 @@ describe('POST /api/tasks', () => {
 
   it('returns INVALID_MODEL_OUTPUT when repair also fails', async () => {
     const client = fakeClient(['bad', 'worse']);
-    const response = await request(createApp({ arkClient: client })).post('/api/tasks').send(validBody);
+    const response = await request(createApp({ arkClient: client, skipAuth: true })).post('/api/tasks').send(validBody);
 
     expect(response.status).toBe(502);
     expect(response.body.code).toBe('INVALID_MODEL_OUTPUT');
@@ -121,14 +121,14 @@ describe('POST /api/tasks', () => {
 
   it('maps model timeout to 504', async () => {
     const client = fakeClient([new ArkError('ARK_TIMEOUT', 'timeout')]);
-    const response = await request(createApp({ arkClient: client })).post('/api/tasks').send(validBody);
+    const response = await request(createApp({ arkClient: client, skipAuth: true })).post('/api/tasks').send(validBody);
 
     expect(response.status).toBe(504);
   });
 
   it('rejects invalid request bodies without calling the model', async () => {
     const client = fakeClient([]);
-    const response = await request(createApp({ arkClient: client }))
+    const response = await request(createApp({ arkClient: client, skipAuth: true }))
       .post('/api/tasks')
       .send({ request: { raw_input: 'x' } });
 

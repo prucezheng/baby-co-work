@@ -10,6 +10,7 @@ dist-server/
 
 # 上传媒体与运行日志
 server/uploads/
+data/
 *.log
 logs/
 

@@ -20,7 +20,7 @@ const validRaw = JSON.stringify(fixture);
 describe('POST /api/analyze', () => {
   it('returns a validated analysis for fenced JSON output', async () => {
     const client = fakeClient([` \`\`\`json\n${validRaw}\n\`\`\` `]);
-    const response = await request(createApp({ arkClient: client }))
+    const response = await request(createApp({ arkClient: client, skipAuth: true }))
       .post('/api/analyze')
       .send({ mediaUrl: 'https://example.com/care.mp4', videoId: 'v1' });
 
@@ -36,7 +36,7 @@ describe('POST /api/analyze', () => {
     withMedicine.steps[0].riskLevel = 'low';
     const client = fakeClient([JSON.stringify(withMedicine)]);
 
-    const response = await request(createApp({ arkClient: client }))
+    const response = await request(createApp({ arkClient: client, skipAuth: true }))
       .post('/api/analyze')
       .send({ mediaUrl: 'https://example.com/care.mp4' });
 
@@ -46,7 +46,7 @@ describe('POST /api/analyze', () => {
 
   it('repairs invalid output exactly once', async () => {
     const client = fakeClient(['not json at all', validRaw]);
-    const response = await request(createApp({ arkClient: client }))
+    const response = await request(createApp({ arkClient: client, skipAuth: true }))
       .post('/api/analyze')
       .send({ mediaUrl: 'https://example.com/care.mp4' });
 
@@ -57,7 +57,7 @@ describe('POST /api/analyze', () => {
 
   it('returns INVALID_MODEL_OUTPUT when repair also fails', async () => {
     const client = fakeClient(['garbage', 'still garbage']);
-    const response = await request(createApp({ arkClient: client }))
+    const response = await request(createApp({ arkClient: client, skipAuth: true }))
       .post('/api/analyze')
       .send({ mediaUrl: 'https://example.com/care.mp4' });
 
@@ -68,7 +68,7 @@ describe('POST /api/analyze', () => {
 
   it('maps model timeout to 504 ARK_TIMEOUT', async () => {
     const client = fakeClient([new ArkError('ARK_TIMEOUT', '模型请求超时')]);
-    const response = await request(createApp({ arkClient: client }))
+    const response = await request(createApp({ arkClient: client, skipAuth: true }))
       .post('/api/analyze')
       .send({ mediaUrl: 'https://example.com/care.mp4' });
 
@@ -78,7 +78,7 @@ describe('POST /api/analyze', () => {
 
   it('rejects requests without mediaUrl', async () => {
     const client = fakeClient([]);
-    const response = await request(createApp({ arkClient: client }))
+    const response = await request(createApp({ arkClient: client, skipAuth: true }))
       .post('/api/analyze')
       .send({});
 

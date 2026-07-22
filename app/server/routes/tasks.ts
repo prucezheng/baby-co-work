@@ -1,16 +1,14 @@
-import { randomUUID } from 'node:crypto';
+// 任务路由：文字输入创建任务 + 完成事件记录。
+// 业务逻辑已抽离到 TaskOrchestrator / TaskEventService，路由只做参数校验和 HTTP 响应。
+
 import { Router } from 'express';
 import { z } from 'zod';
-import { buildRepairPrompt, buildTaskDraftPrompt } from '../prompts';
-import type { ArkClient } from '../services/ark-client';
-import { ArkError } from '../services/ark-client';
-import { ModelOutputError, parseTaskDraftOutput } from '../services/model-json';
-import { containsMedicalRisk } from '../services/safety';
+import type { TaskOrchestrator } from '../services/task-orchestrator';
+import type { TaskEventService } from '../services/task-events';
+import type { TaskRepository, FamilyRepository, EventRepository } from '../repositories/types';
 import { createTaskInputSchema, familyMemberSchema } from '../../src/domain/schemas';
-import type { FamilyTaskWithSubtasks } from '../../src/domain/types';
-import { validateAssignment } from '../../src/domain/rules';
-
-const MEDICAL_SAFETY_NOTICE = '这部分可能涉及医疗判断。请暂停执行，并咨询儿科医生或专业医护人员。';
+import { ArkError } from '../services/ark-client';
+import { ModelOutputError } from '../services/model-json';
 
 const createTaskRequestSchema = z.object({
   request: createTaskInputSchema,
@@ -19,9 +17,26 @@ const createTaskRequestSchema = z.object({
   daily_load_minutes: z.record(z.string(), z.number().int().min(0)).optional()
 });
 
-export function createTasksRouter(arkClient: ArkClient): Router {
+const completionSchema = z.object({
+  task_id: z.string().trim().min(1),
+  actor_member_id: z.string().trim().min(1),
+  event_type: z.enum(['completed', 'undo', 'skipped', 'reassigned']),
+  completion_source: z.enum(['self', 'substitute', 'automatic']).optional(),
+  substitute_reason: z.string().trim().min(1).max(120).optional(),
+  reverts_event_id: z.string().trim().min(1).optional(),
+  assignee_member_id: z.string().trim().min(1).nullable().optional(),
+  idempotency_key: z.string().trim().min(1).max(120)
+});
+
+export function createTasksRouter(
+  orchestrator: TaskOrchestrator,
+  taskEventService: TaskEventService,
+  taskRepo: TaskRepository,
+  familyRepo: FamilyRepository
+): Router {
   const router = Router();
 
+  // POST /api/tasks — 创建任务
   router.post('/', async (req, res) => {
     const parsed = createTaskRequestSchema.safeParse(req.body);
     if (!parsed.success) {
@@ -29,74 +44,17 @@ export function createTasksRouter(arkClient: ArkClient): Router {
       return;
     }
 
-    const { request, members, daily_load_minutes } = parsed.data;
-    const currentTime = parsed.data.current_time ?? new Date().toISOString();
+    const { request, members, current_time, daily_load_minutes } = parsed.data;
 
     try {
-      const prompt = buildTaskDraftPrompt({
-        rawInput: request.raw_input,
+      const result = await orchestrator.createTask({
+        input: request,
         members,
-        currentTime,
+        currentTime: current_time,
         dailyLoadMinutes: daily_load_minutes
       });
 
-      const raw = await arkClient.chat([{ type: 'text', text: prompt }]);
-
-      let draft;
-      try {
-        draft = parseTaskDraftOutput(raw);
-      } catch (firstError) {
-        if (!(firstError instanceof ModelOutputError)) throw firstError;
-        const repaired = await arkClient.chat([
-          { type: 'text', text: buildRepairPrompt(raw, firstError.issues) }
-        ]);
-        draft = parseTaskDraftOutput(repaired);
-      }
-
-      // 确定性硬规则：模型分配违反底线时转为待认领，不强行接受
-      const violation = validateAssignment(draft.assignee_member_id, draft.due_at, members);
-      const assigneeId = violation ? null : draft.assignee_member_id;
-      const assignmentReason = violation
-        ? `原分配无效（${violation.message}），已转为待认领`
-        : draft.assignment_reason;
-
-      // 医疗内容非阻断处理（PRD v1.1 §6.3）：照常发布，但不扩写医疗子步骤，追加就医提示
-      const medical =
-        containsMedicalRisk(request.raw_input) ||
-        containsMedicalRisk(draft.title) ||
-        containsMedicalRisk(draft.completion_criteria);
-      const subtasks = medical ? [] : draft.subtasks;
-      const safetyNotice = medical ? (draft.safety_notice ?? MEDICAL_SAFETY_NOTICE) : draft.safety_notice;
-
-      const taskId = randomUUID();
-      const task: FamilyTaskWithSubtasks = {
-        task_id: taskId,
-        title: draft.title,
-        raw_input: request.raw_input,
-        input_type: request.input_type,
-        assignee_member_id: assigneeId,
-        due_at: draft.due_at,
-        duration_min: draft.duration_min,
-        completion_criteria: draft.completion_criteria,
-        assignment_reason: assignmentReason,
-        status: 'pending',
-        knowledge_notes: draft.knowledge_notes,
-        safety_notice: safetyNotice,
-        manually_assigned: false,
-        locked_by_user: false,
-        version: 1,
-        subtasks: subtasks.map((s) => ({
-          subtask_id: randomUUID(),
-          parent_task_id: taskId,
-          title: s.title,
-          order: s.order,
-          required: s.required,
-          source: s.source,
-          completed: false
-        }))
-      };
-
-      res.status(201).json({ task });
+      res.status(201).json({ task: result.task });
     } catch (error) {
       if (error instanceof ArkError) {
         const status = error.code === 'ARK_TIMEOUT' ? 504 : 503;
@@ -107,6 +65,81 @@ export function createTasksRouter(arkClient: ArkClient): Router {
         res.status(502).json({ code: 'INVALID_MODEL_OUTPUT', message: error.message });
         return;
       }
+      console.error('[tasks] create error:', error);
+      res.status(500).json({ code: 'INTERNAL_ERROR', message: '服务内部错误' });
+    }
+  });
+
+  // POST /api/tasks/:taskId/complete — 记录完成事件
+  router.post('/:taskId/complete', async (req, res) => {
+    const parsed = completionSchema.safeParse(req.body);
+    if (!parsed.success) {
+      res.status(400).json({ code: 'INVALID_REQUEST', message: '请求体不符合完成事件规范' });
+      return;
+    }
+
+    const { task_id, actor_member_id, event_type, completion_source, substitute_reason, reverts_event_id, assignee_member_id, idempotency_key } = parsed.data;
+
+    try {
+      const { event, updatedTask } = await taskEventService.recordCompletion({
+        taskId: task_id,
+        assigneeMemberId: assignee_member_id ?? null,
+        actorMemberId: actor_member_id,
+        eventType: event_type,
+        completionSource: completion_source,
+        substituteReason: substitute_reason,
+        revertsEventId: reverts_event_id,
+        idempotencyKey: idempotency_key
+      });
+
+      res.json({ event, task: updatedTask });
+    } catch (error) {
+      if (error instanceof Error && error.message.includes('已存在')) {
+        res.status(409).json({ code: 'DUPLICATE_EVENT', message: error.message });
+        return;
+      }
+      if (error instanceof Error && error.name === 'EventConflictError') {
+        res.status(409).json({ code: 'VERSION_CONFLICT', message: error.message });
+        return;
+      }
+      console.error('[tasks] complete error:', error);
+      res.status(500).json({ code: 'INTERNAL_ERROR', message: '服务内部错误' });
+    }
+  });
+
+  // GET /api/tasks?family_id=xxx — 获取家庭任务列表
+  router.get('/', async (req, res) => {
+    try {
+      const familyId = req.query.family_id as string | undefined;
+      if (!familyId) {
+        res.status(400).json({ code: 'MISSING_PARAM', message: '缺少 family_id 参数' });
+        return;
+      }
+
+      if (req.session && req.session.familyId !== familyId) {
+        res.status(403).json({ code: 'FORBIDDEN', message: '无权访问该家庭' });
+        return;
+      }
+
+      const tasks = await taskRepo.listTasksByFamily(familyId);
+      res.json({ tasks });
+    } catch (error) {
+      console.error('[tasks] list error:', error);
+      res.status(500).json({ code: 'INTERNAL_ERROR', message: '服务内部错误' });
+    }
+  });
+
+  // GET /api/tasks/:taskId — 获取单个任务
+  router.get('/:taskId', async (req, res) => {
+    try {
+      const task = await taskRepo.getTask(req.params.taskId);
+      if (!task) {
+        res.status(404).json({ code: 'TASK_NOT_FOUND', message: '任务不存在' });
+        return;
+      }
+      res.json({ task });
+    } catch (error) {
+      console.error('[tasks] get error:', error);
       res.status(500).json({ code: 'INTERNAL_ERROR', message: '服务内部错误' });
     }
   });
